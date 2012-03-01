@@ -6,7 +6,7 @@ MCU_TARGET     = atmega328p
 AVRDUDE_TARGET = ATMEGA328P
 OPTIMIZE       = -Os -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections
 DEFS           =
-LIBS           = motor.cpp adc.cpp
+LIBS           = motor.cpp adc.cpp sensors.cpp
 
 BAUDRATE       = 57600
 HZ             = 16000000

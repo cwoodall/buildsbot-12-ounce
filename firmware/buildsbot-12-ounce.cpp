@@ -4,6 +4,7 @@
  * Creator(s): Christopher Woodall
  * License: MIT License
  * 
+ * 
  */
 #define F_CPU 16000000 /* 16MHz Internal Oscillator */
 #define BAUDRATE 9600
@@ -13,8 +14,9 @@
 #include "pins.h"
 #include "motor.h"
 #include "adc.h"
+#include "sensors.h"
 
-
+// void initPWM() sets up the TIMERS and scaling for PWM on pins 11 and 9
 void initPWM();
 
 int main(void) 
@@ -30,9 +32,9 @@ int main(void)
     Motor rightMotor( P9, &PORTB, &OCR1A, P12, &PORTB, P13, &PORTB);
     rightMotor.setSpeed(1023, HALT);
     
-    LineSensor lSensor( A2, &PORTC );
-    LineSensor mSensor( A1, &PORTC );
-    LineSensor rSensor( A0, &PORTC );
+    LineSensor lSensor( A2, &PORTC, 100);
+    LineSensor mSensor( A1, &PORTC, 100);
+    LineSensor rSensor( A0, &PORTC, 100);
     
     int a = 0;
     while (1) {

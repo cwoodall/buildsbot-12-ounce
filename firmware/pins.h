@@ -3,6 +3,10 @@
 
 #include <avr/io.h>
 
+// Give us the Arduino pin bindings. This is dirty, but lets us easily access 
+// the appropriate pins easily.
+//
+// To use properly you still need to know what the appropriate port is.
 #define P13 PB5
 #define P12 PB4
 #define P11 PB3

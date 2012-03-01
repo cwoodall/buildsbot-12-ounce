@@ -37,4 +37,3 @@ uint16_t ADCchannel::getValue()
 {
     return value;
 }
-

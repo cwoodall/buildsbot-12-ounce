@@ -1,5 +1,5 @@
-#ifndef _ADC_
-#define _ADC_
+#ifndef ADC_H
+#define ADC_H
 
 #include <stdint.h>
 #include <avr/io.h>
@@ -18,11 +18,5 @@ public:
     void update();
 };
 
-class LineSensor: public ADCchannel
-{
-public:
-    LineSensor(uint8_t p, volatile uint8_t * po) 
-        : ADCchannel(p, po) {};
-};
 
 #endif
