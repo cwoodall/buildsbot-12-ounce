@@ -4,7 +4,7 @@ PROGRAMMER     = arduino
 PORT           = /dev/tty.usbserial-A600aflQ
 MCU_TARGET     = atmega328p
 AVRDUDE_TARGET = ATMEGA328P
-OPTIMIZE       = -Os
+OPTIMIZE       = -Os -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -ffunction-sections -fdata-sections
 DEFS           =
 LIBS           = motor.cpp adc.cpp
 
@@ -19,8 +19,8 @@ CXX            = avr-g++
 
 
 override CFLAGS        = -g -DF_CPU=$(HZ) -Wall $(OPTIMIZE) -mmcu=$(MCU_TARGET) $(DEFS)
-override LDFLAGS       = -Wl,-Map,$(PRG).map
-override CPPFLAGS      = -g -DF_CPU=$(HZ) -Wall $(OPTIMIZE) -mmcu=$(MCU_TARGET) $(DEFS)
+override LDFLAGS       = -Wl,-Map,$(PRG).map -s -Wl,--gc-sections
+override CPPFLAGS      = -g -DF_CPU=$(HZ) -Wall $(OPTIMIZE) -fvtable-gc -mmcu=$(MCU_TARGET) $(DEFS)
 
 OBJCOPY        = avr-objcopy
 OBJDUMP        = avr-objdump
