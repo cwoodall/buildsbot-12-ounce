@@ -31,14 +31,10 @@ BUILDSbot 12 Ounce is part of the overarching BUILDSbot project. The goal is to 
 
 ## Full Schematic
 
-## Chasis ===
+## Chasis
 
 ## Code Overview
 
 # Milestones 
 
-[http://www.youtube.com/watch?v=Bhn6o0GdhjE&feature=youtu.be Video of the BUILDSbot doing some basic movements (pre-programmed)]
-
-# Team
-
-* [[Christopher Woodall]]
+[Video of the BUILDSbot doing some basic movements (pre-programmed)](http://www.youtube.com/watch?v=Bhn6o0GdhjE&feature=youtu.be)
