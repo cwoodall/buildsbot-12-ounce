@@ -7,8 +7,6 @@
  * 
  */
 #define F_CPU 16000000 /* 16MHz Internal Oscillator */
-#define BAUDRATE 9600
-#define MYUBRR (F_CPU / 16 / BAUDRATE) - 1
 
 #include <avr/io.h>
 #include "pins.h"
@@ -19,29 +17,36 @@
 // void initPWM() sets up the TIMERS and scaling for PWM on pins 11 and 9
 void initPWM();
 
-int main(void) 
+int main( void ) 
 {
+    // Set outputs for Arduino Pins 8-11 to be outputs
     DDRB = 0x3F;
-    initPWM();
+    // Initialize Pulse Width Modulator and ADC.
+    // Necissary inorder to use motors and ADCs.
+    initPWM(); // May need to customize your initPWM() method depending on uC
     initADC();
     
+    // Initialize Motors and set them to HALT
     Motor leftMotor( P11, &PORTB, (volatile uint16_t *) &OCR2A, P8, &PORTB, 
-                     P10, &PORTB);
-    leftMotor.setSpeed(1023,HALT);
+                     P10, &PORTB );
+    leftMotor.setSpeed( 1023, HALT );
     
     Motor rightMotor( P9, &PORTB, &OCR1A, P12, &PORTB, P13, &PORTB);
-    rightMotor.setSpeed(1023, HALT);
+    rightMotor.setSpeed( 1023, HALT );
     
-    LineSensor lSensor( A2, &PORTC, 100);
-    LineSensor mSensor( A1, &PORTC, 100);
-    LineSensor rSensor( A0, &PORTC, 100);
+    // Initialize Line Sensors with threshold set to 100
+    LineSensor lSensor( A2, &PORTC, 100 );
+    LineSensor mSensor( A1, &PORTC, 100 );
+    LineSensor rSensor( A0, &PORTC, 100 );
     
     int a = 0;
+    // Enter the Super Loop
     while (1) {
         lSensor.update();
         mSensor.update();
         rSensor.update();
         
+        // Insert Line Sensor logic here
         if ((lSensor.getValue() < 100) && (rSensor.getValue() < 100) && 
             (mSensor.getValue() < 100)) {
             if (a == 1) {
