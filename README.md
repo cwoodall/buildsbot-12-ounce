@@ -42,4 +42,6 @@ BUILDSbot 12 Ounce is part of the overarching BUILDSbot project. The goal is to 
 
 # Credits and Notes
 
-Many schematic elements ATMEGA32U4 and the USB jack were taken from the adafruit eagle library, converted, checked and tweaked.
+Many schematic elements ATMEGA32U4 and the USB jack were taken from the adafruit eagle library, converted to kicad, checked and tweaked.
+
+Design files for the prototype are in EAGLE format, but future iterations are being done in KiCAD
