@@ -38,3 +38,8 @@ BUILDSbot 12 Ounce is part of the overarching BUILDSbot project. The goal is to 
 # Milestones 
 
 [Video of the BUILDSbot doing some basic movements (pre-programmed)](http://www.youtube.com/watch?v=Bhn6o0GdhjE&feature=youtu.be)
+
+
+# Credits and Notes
+
+Many schematic elements ATMEGA32U4 and the USB jack were taken from the adafruit eagle library, converted, checked and tweaked.
